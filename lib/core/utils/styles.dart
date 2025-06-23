@@ -26,5 +26,4 @@ abstract class Styles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
-
 }

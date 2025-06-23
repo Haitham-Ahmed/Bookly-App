@@ -1,4 +1,3 @@
-
 import 'package:bookly_app/core/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,8 @@ class BooksActions extends StatelessWidget {
                 topLeft: Radius.circular(16),
                 bottomLeft: Radius.circular(16),
               ),
-            )),
+            ),
+          ),
           Expanded(
             child: CustomButton(
               fontSize: 16,
@@ -31,7 +31,8 @@ class BooksActions extends StatelessWidget {
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
               ),
-            )),  
+            ),
+          ),
         ],
       ),
     );
