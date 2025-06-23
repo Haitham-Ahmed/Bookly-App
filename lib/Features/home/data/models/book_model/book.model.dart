@@ -73,4 +73,6 @@ class Book extends Equatable {
       searchInfo,
     ];
   }
+
+  static Book fromJson(item) {}
 }
