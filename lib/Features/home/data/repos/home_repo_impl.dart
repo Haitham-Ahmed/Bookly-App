@@ -19,7 +19,7 @@ class HomeRepoImpl implements HomeRepo {
 
       List<Book> books = [];
       for (var item in data["items"]) {
-        books.add(Book.fromJson(item));
+        books.add(Book.fromNo(item));
       }
 
       return right(books);
@@ -32,7 +32,24 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Book>>> fetchNewestBooks() {
-    
+  Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
+    try {
+      var data = await apiService.get(
+        endPoint:
+            "volumes?Filtring=free-ebooks&q=subject:Programming",
+      );
+
+      List<Book> books = [];
+      for (var item in data["items"]) {
+        books.add(Book.fromNo(item));
+      }
+
+      return right(books);
+    } catch (e) {
+      if (e is Failure) {
+        return left(ServerFailure.fromDioError(e as DioError));
+    }
+      return left(ServerFailure(e.toString(),),);
+    }
   }
 }
