@@ -23,7 +23,7 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-              imageUrl: book.volumeInfo.imageLinks.thumbnail,
+              imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(width: 30),
             Expanded(
@@ -56,7 +56,7 @@ class BookListViewItem extends StatelessWidget {
                       ),
                       const Spacer(),
                        BookRating(
-                        rating: book.volumeInfo.averageRating ?? 0,
+                        rating: book.volumeInfo.averageRating?.round() ?? 0,
                         count: book.volumeInfo.ratingsCount ?? 0,
                        ),
                     ],
