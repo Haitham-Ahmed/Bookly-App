@@ -30,17 +30,16 @@ class HomeRepoImpl implements HomeRepo {
     } catch (e) {
       if (e is Failure) {
         return left(ServerFailure.fromDioError(e as DioError));
-    }
-      return left(ServerFailure(e.toString(),),);
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-        endPoint:
-            "volumes?Filtring=free-ebooks&q=subject:Programming",
+        endPoint: "volumes?Filtring=free-ebooks&q=subject:Programming",
       );
 
       List<Book> books = [];
@@ -52,13 +51,15 @@ class HomeRepoImpl implements HomeRepo {
     } catch (e) {
       if (e is Failure) {
         return left(ServerFailure.fromDioError(e as DioError));
-    }
-      return left(ServerFailure(e.toString(),),);
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<Book>>> fetchSimilarBooks({required String category}) async {
+  Future<Either<Failure, List<Book>>> fetchSimilarBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
         endPoint:
@@ -74,8 +75,8 @@ class HomeRepoImpl implements HomeRepo {
     } catch (e) {
       if (e is Failure) {
         return left(ServerFailure.fromDioError(e as DioError));
-    }
-      return left(ServerFailure(e.toString(),),);
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 }
