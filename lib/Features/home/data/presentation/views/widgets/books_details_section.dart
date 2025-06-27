@@ -39,11 +39,16 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
+        // BookRating(
+        //   rating: book.volumeInfo.averageRating ?? 0,
+        //   count: book.volumeInfo.ratingsCount ?? 0,
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        // ),
         BookRating(
-          rating: book.volumeInfo.averageRating ?? 0,
-          count: book.volumeInfo.ratingsCount ?? 0,
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+  rating: book.volumeInfo.averageRating,
+  count: book.volumeInfo.ratingsCount,
+  mainAxisAlignment: MainAxisAlignment.center,
+),
         const SizedBox(height: 37),
          BooksActions(
            book: book,
