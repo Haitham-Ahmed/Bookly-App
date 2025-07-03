@@ -8,3 +8,5 @@ const KGtSectraFine = 'GT Sectra Fine';
 
 const KFeaturedBox = 'featured_box';
 
+const KNewestBox = 'newest_box';
+
