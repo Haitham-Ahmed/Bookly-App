@@ -1,3 +1,5 @@
+import 'package:bookly_app/Features/home/data/data_sources/home_local_data_source.dart';
+import 'package:bookly_app/Features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:bookly_app/Features/home/data/models/book_model/book.model.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/core/errors/failures.dart';
@@ -7,7 +9,7 @@ import 'package:dio/src/dio_exception.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final ApiService apiService;
-  HomeRepoImpl(this.apiService);
+  HomeRepoImpl(this.apiService, {required HomeRemoteDataSourceImpl homeRemoteDataSource, required HomeLocalDataSourceImpl homeLocalDataSource});
 
   @override
   Future<Either<Failure, List<Book>>> fetchNewsetBooks() async {
